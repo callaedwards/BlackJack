@@ -1,13 +1,16 @@
-public class {BlackJack
+import java.util.*;
+public class BlackJack
+{
+    public static void main (String [] args)
+    {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Welcome to Blackjack! /nWant to play? (Y / N)");
+        String n = console.nextLine();
 
-Scanner reader = new Scanner (System.in);
-System.out.print("Welcome to Blackjack! /nWant to play? (Y / N)");
-str n = reader.nextStr();
-
-while(boolean play==true){
-if (n="Y")
+while (boolean play==true){
+if (n.equals("Y"))
 play=false;
-else if (n="N"){
+else if (n.equals("N")){
 System.out.println("Goodbye");
 play=false}
 else{
@@ -19,20 +22,20 @@ int b= Math.rand()*13 + 1;
 int c= Math.rand()*13 + 1;
 int d= Math.rand()*13 + 1;
 
-System.out.println("Your cards are %n and %n. The dealer's card are %n and %n.",a,b,c,d);
+System.out.printf("Your cards are %d and %d. The dealer's card are %d and %d.",a,b,c,d);
 int yourCards = a+b;
 int myCards = c+d;
 
 while(boolean play==true){
 System.out.println("Hit or Stand?");
-n = reader.nextStr();
+n = console.nextLine();
 
-if (n = "Hit"){
+if (n.equals("Hit")){
 int e= Math.rand()*13 +1;
 System.out.println("Your card is %n",e);
 yourCards += e;
 play=true;}
-else if (n = "Stand"){
+else if (n.equals("Stand")){
 play=false; 
 else
 System.out.println("Invalid Answer. Try Again.");
@@ -40,8 +43,8 @@ play=true;}
 
 while (boolean play==true){
 if (myCards < 16){
-e= Math.rand()*13 +1;
-System.out.println("Dealer Hits. Dealer draws a %n.",e);
+e = Math.rand()*13 +1;
+System.out.printf("Dealer Hits. Dealer draws a %d.",e);
 myCards +=e;
 play=true;}
 else {
