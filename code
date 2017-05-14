@@ -6,57 +6,78 @@ public class BlackJack
         Scanner console = new Scanner(System.in);
         System.out.println("Welcome to Blackjack! /nWant to play? (Y / N)");
         String n = console.nextLine();
+	
+	boolean play = true;
 
-while (boolean play==true){
-if (n.equals("Y"))
-play=false;
-else if (n.equals("N")){
-System.out.println("Goodbye");
-play=false}
-else{
-System.out.println("Invalid Answer. Try again.");
-play=true;}
+	while (boolean play==true)
+	{
+		if (n.equals("Y"))
+			play=false;
+		else if (n.equals("N"))
+		{
+			System.out.println("Goodbye");
+			play=false;
+		}
+		else
+		{
+			System.out.println("Invalid Answer. Try again.");
+			play=true;
+		}
+	}
 
-int a= Math.rand()*13 + 1;
-int b= Math.rand()*13 + 1;
-int c= Math.rand()*13 + 1;
-int d= Math.rand()*13 + 1;
+	int a= Math.rand()*13 + 1;
+	int b= Math.rand()*13 + 1;
+	int c= Math.rand()*13 + 1;
+	int d= Math.rand()*13 + 1;
 
-System.out.printf("Your cards are %d and %d. The dealer's card are %d and %d.",a,b,c,d);
-int yourCards = a+b;
-int myCards = c+d;
+	System.out.printf("Your cards are %d and %d. The dealer's card are %d and %d.",a,b,c,d);
+	int yourCards = a+b;
+	int myCards = c+d;
 
-while(boolean play==true){
-System.out.println("Hit or Stand?");
-n = console.nextLine();
+	while(boolean play==true)
+	{
+		System.out.println("Hit or Stand?");
+		n = console.nextLine();
 
-if (n.equals("Hit")){
-int e= Math.rand()*13 +1;
-System.out.println("Your card is %n",e);
-yourCards += e;
-play=true;}
-else if (n.equals("Stand")){
-play=false; 
-else
-System.out.println("Invalid Answer. Try Again.");
-play=true;}
+		if (n.equals("Hit"))
+		{
+			int e= Math.rand()*13 +1;
+			System.out.println("Your card is %n",e);
+			yourCards += e;
+			play=true;
+		}
+		else if (n.equals("Stand"))
+			play=false; 
+		else
+		{
+			System.out.println("Invalid Answer. Try Again.");
+			play=true;
+		}
+	}
 
-while (boolean play==true){
-if (myCards < 16){
-e = Math.rand()*13 +1;
-System.out.printf("Dealer Hits. Dealer draws a %d.",e);
-myCards +=e;
-play=true;}
-else {
-System.out.println("Dealer Stands");
-play=false;}}
+	while (boolean play==true)
+	{
+		if (myCards < 16)
+		{
+			e = Math.rand()*13 +1;
+			System.out.printf("Dealer Hits. Dealer draws a %d.",e);
+			myCards +=e;
+			play=true;
+		}
+		else
+		{
+			System.out.println("Dealer Stands");
+			play=false;
+		}
+	}
 
-if (yourCards > 21)
-System.out.println("You busted! Dealer Wins!");
-else if (myCards > 21 || yourCards > myCards)
-System.out.println("You Win!");
-else if (myCards > yourCards)
-System.out.println("Dealer Wins!");
-else
-System.out.println("It's a tie!");
+	if (yourCards > 21)
+		System.out.println("You busted! Dealer Wins!");
+	else if (myCards > 21 || yourCards > myCards)
+		System.out.println("You Win!");
+	else if (myCards > yourCards)
+		System.out.println("Dealer Wins!");
+	else
+		System.out.println("It's a tie!");
+   }
 }
