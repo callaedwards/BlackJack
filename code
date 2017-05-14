@@ -1,0 +1,34 @@
+public class {BlackJack
+
+Scanner reader = new Scanner (System.in);
+System.out.print("Welcome to Blackjack! /nWant to play? (Y / N)");
+str n = reader.nextStr();
+
+if (n="Y")
+continue;
+else if (n="N"){
+System.out.println("Goodbye");
+stop;}
+else
+System.out.println("Invalid Answer");
+
+int a= Math.rand()*13 + 1;
+int b= Math.rand()*13 + 1
+
+System.out.println("Your card is %n and the dealer's card is %n",a,b);
+System.out.println("Hit or Stand?")
+n = reader.nextStr();
+
+if (n = "Hit")
+int c= Math.rand()*13 +1;
+System.out.println("Your card is %n",c);
+
+else if (n = "Stand")
+else
+System.out.println("Invalid Answer");
+
+
+
+
+
+}
