@@ -4,31 +4,56 @@ Scanner reader = new Scanner (System.in);
 System.out.print("Welcome to Blackjack! /nWant to play? (Y / N)");
 str n = reader.nextStr();
 
+while(boolean play==true){
 if (n="Y")
-continue;
+play=false;
 else if (n="N"){
 System.out.println("Goodbye");
-stop;}
-else
-System.out.println("Invalid Answer");
+play=false}
+else{
+System.out.println("Invalid Answer. Try again.");
+play=true;}
 
 int a= Math.rand()*13 + 1;
-int b= Math.rand()*13 + 1
+int b= Math.rand()*13 + 1;
+int c= Math.rand()*13 + 1;
+int d= Math.rand()*13 + 1;
 
-System.out.println("Your card is %n and the dealer's card is %n",a,b);
-System.out.println("Hit or Stand?")
+System.out.println("Your cards are %n and %n. The dealer's card are %n and %n.",a,b,c,d);
+int yourCards = a+b;
+int myCards = c+d;
+
+while(boolean play==true){
+System.out.println("Hit or Stand?");
 n = reader.nextStr();
 
-if (n = "Hit")
-int c= Math.rand()*13 +1;
-System.out.println("Your card is %n",c);
-
-else if (n = "Stand")
+if (n = "Hit"){
+int e= Math.rand()*13 +1;
+System.out.println("Your card is %n",e);
+yourCards += e;
+play=true;}
+else if (n = "Stand"){
+play=false; 
 else
-System.out.println("Invalid Answer");
+System.out.println("Invalid Answer. Try Again.");
+play=true;}
 
+while (boolean play==true){
+if (myCards < 16){
+e= Math.rand()*13 +1;
+System.out.println("Dealer Hits. Dealer draws a %n.",e);
+myCards +=e;
+play=true;}
+else {
+System.out.println("Dealer Stands");
+play=false;}}
 
-
-
-
+if (yourCards > 21)
+System.out.println("You busted! Dealer Wins!");
+else if (myCards > 21 || yourCards > myCards)
+System.out.println("You Win!");
+else if (myCards > yourCards)
+System.out.println("Dealer Wins!");
+else
+System.out.println("It's a tie!");
 }
