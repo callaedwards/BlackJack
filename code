@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class BlackJack
 {
     public static void main (String [] args)
@@ -9,7 +10,7 @@ public class BlackJack
 	
 	boolean play = true;
 
-	while (boolean play==true)
+	while (play)
 	{
 		if (n.equals("Y"))
 			play=false;
@@ -25,24 +26,25 @@ public class BlackJack
 		}
 	}
 
-	int a= Math.rand()*13 + 1;
-	int b= Math.rand()*13 + 1;
-	int c= Math.rand()*13 + 1;
-	int d= Math.rand()*13 + 1;
+	int a= (int)(Math.random()*13) + 1;
+	int b= (int)(Math.random()*13) + 1;
+	int c= (int)(Math.random()*13) + 1;
+	int d= (int)(Math.random()*13) + 1;
+	int e=0;
 
 	System.out.printf("Your cards are %d and %d. The dealer's card are %d and %d.",a,b,c,d);
 	int yourCards = a+b;
 	int myCards = c+d;
 
-	while(boolean play==true)
+	while(play)
 	{
 		System.out.println("Hit or Stand?");
 		n = console.nextLine();
 
 		if (n.equals("Hit"))
 		{
-			int e= Math.rand()*13 +1;
-			System.out.println("Your card is %n",e);
+			e= 1 + (int)(Math.random()*13);
+			System.out.printf("Your card is %d.",e);
 			yourCards += e;
 			play=true;
 		}
@@ -55,11 +57,11 @@ public class BlackJack
 		}
 	}
 
-	while (boolean play==true)
+	while (play)
 	{
 		if (myCards < 16)
 		{
-			e = Math.rand()*13 +1;
+			e = 1 + (int)(Math.random()*13);
 			System.out.printf("Dealer Hits. Dealer draws a %d.",e);
 			myCards +=e;
 			play=true;
