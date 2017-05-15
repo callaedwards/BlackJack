@@ -1,17 +1,17 @@
 import java.util.*;
-
 public class BlackJack
 {
     public static void main (String [] args)
     {
         Scanner console = new Scanner(System.in);
-        System.out.println("Welcome to Blackjack! /nWant to play? (Y / N)");
-        String n = console.nextLine();
-	
-	boolean play = true;
+        boolean play = true;
+	String n = "";
 
 	while (play)
-	{
+	{	
+		System.out.println("Welcome to Blackjack! \nWant to play? (Y / N)");
+        	n = console.nextLine();
+	
 		if (n.equals("Y"))
 			play=false;
 		else if (n.equals("N"))
@@ -35,10 +35,11 @@ public class BlackJack
 	System.out.printf("Your cards are %d and %d. The dealer's card are %d and %d.",a,b,c,d);
 	int yourCards = a+b;
 	int myCards = c+d;
-
+	play=true;
+	
 	while(play)
 	{
-		System.out.println("Hit or Stand?");
+		System.out.println(" Hit or Stand?");
 		n = console.nextLine();
 
 		if (n.equals("Hit"))
@@ -56,16 +57,18 @@ public class BlackJack
 			play=true;
 		}
 	}
-
+	play=true;
 	while (play)
 	{
 		if (myCards < 16)
 		{
 			e = 1 + (int)(Math.random()*13);
-			System.out.printf("Dealer Hits. Dealer draws a %d.",e);
+			System.out.printf("Dealer Hits. Dealer draws a %d. ",e);
 			myCards +=e;
 			play=true;
 		}
+		if (myCards > 21)
+			System.out.print("Dealer Busted!");
 		else
 		{
 			System.out.println("Dealer Stands");
