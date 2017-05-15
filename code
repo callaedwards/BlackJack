@@ -32,9 +32,9 @@ public class BlackJack
 	int d= (int)(Math.random()*13) + 1;
 	int e=0;
 
-	System.out.printf("Your cards are %d and %d. The dealer's card are %d and %d.",a,b,c,d);
-	int yourCards = a+b;
-	int myCards = c+d;
+	System.out.printf("Your cards are %s and %s. The dealer's card are %s and %s.",faceValue(a),faceValue(b),faceValue(c),faceValue(d));
+	int yourCards = cardValue(a)+cardValue(b);
+	int myCards = cardValue(c)+cardValue(d);
 	play=true;
 	
 	while(play)
@@ -45,8 +45,8 @@ public class BlackJack
 		if (n.equals("Hit"))
 		{
 			e= 1 + (int)(Math.random()*13);
-			System.out.printf("Your card is %d.",e);
-			yourCards += e;
+			System.out.printf("Your card is %s.",faceValue(e));
+			yourCards += cardValue(e);
 			play=true;
 		}
 		else if (n.equals("Stand"))
@@ -63,8 +63,8 @@ public class BlackJack
 		if (myCards < 16)
 		{
 			e = 1 + (int)(Math.random()*13);
-			System.out.printf("Dealer Hits. Dealer draws a %d. ",e);
-			myCards +=e;
+			System.out.printf("Dealer Hits. Dealer draws a %s. ",faceValue(e));
+			myCards += cardValue(e);
 			play=true;
 		}
 		if (myCards > 21)
@@ -75,7 +75,7 @@ public class BlackJack
 			play=false;
 		}
 	}
-
+	
 	if (yourCards > 21)
 		System.out.println("You busted! Dealer Wins!");
 	else if (myCards > 21 || yourCards > myCards)
@@ -84,5 +84,25 @@ public class BlackJack
 		System.out.println("Dealer Wins!");
 	else
 		System.out.println("It's a tie!");
+   }
+   public String faceValue(int n)
+   {
+   	if (n=1)
+		return "A";
+	if (n>1 & n<=10)
+		return Integer.toString(n);
+	if (n=11)
+		return "J";
+	if (n=12)
+		return "Q";
+	if (n=13)
+		return "K";
+   }
+   public int cardValue(int n)
+   {
+   	if (n<=10)
+	return n;
+	else
+	return 10;
    }
 }
