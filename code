@@ -12,9 +12,9 @@ public class BlackJack
 		System.out.println("Welcome to Blackjack! \nWant to play? (Y / N)");
         	n = console.nextLine();
 	
-		if (n.equals("Y"))
+		if (n.equals("Y") || n.equals("y"))
 			play=false;
-		else if (n.equals("N"))
+		else if (n.equals("N") || n.equals("n"))
 		{
 			System.out.println("Goodbye");
 			play=false;
@@ -42,14 +42,14 @@ public class BlackJack
 		System.out.println(" Hit or Stand?");
 		n = console.nextLine();
 
-		if (n.equals("Hit"))
+		if (n.equals("Hit") || n.equals("hit"))
 		{
 			e= 1 + (int)(Math.random()*13);
 			System.out.printf("Your card is %s.",faceValue(e));
 			yourCards += cardValue(e);
 			play=true;
 		}
-		else if (n.equals("Stand"))
+		else if (n.equals("Stand") || n.equals("stand"))
 			play=false; 
 		else
 		{
@@ -85,20 +85,20 @@ public class BlackJack
 	else
 		System.out.println("It's a tie!");
    }
-   public String faceValue(int n)
+   public static String faceValue(int n)
    {
-   	if (n=1)
+   	if (n==1)
 		return "A";
 	if (n>1 & n<=10)
 		return Integer.toString(n);
-	if (n=11)
+	if (n==11)
 		return "J";
-	if (n=12)
+	if (n==12)
 		return "Q";
-	if (n=13)
+	else // (n==13)
 		return "K";
    }
-   public int cardValue(int n)
+   public static int cardValue(int n)
    {
    	if (n<=10)
 	return n;
