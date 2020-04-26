@@ -2,6 +2,8 @@ import java.util.*;
 
 public class BlackJack
 {
+	public static List<Integer> deck = new ArrayList<Integer>();
+
 	public static void main (String [] args)
     {
     	new BlackJack().play();
@@ -15,12 +17,17 @@ public class BlackJack
 	    
 	    while (keepPlaying)
 	    {
+	    	deck.clear();
+	    	for (int i = 0; i < 52; i++){
+	    		deck.add(i, i%13 + 1);
+			}
+
 			int a = deal();
 			int b = deal();
 			int c = deal();
 			int d = deal();
 
-			System.out.printf("Your cards are %s and %s. The dealer's card are %s and %s.",faceValue(a),faceValue(b),faceValue(c),faceValue(d));
+			System.out.printf("\nYour cards are %s and %s. The dealer's card are %s and %s.",faceValue(a),faceValue(b),faceValue(c),faceValue(d));
 			int playerCards = cardValue(a) + cardValue(b);
 			int dealerCards = cardValue(c) + cardValue(d);
 			
@@ -71,7 +78,7 @@ public class BlackJack
 
    private static int deal()
    {
-   		return (int)(Math.random()*13) + 1;
+   		return deck.remove((int)(Math.random()*deck.size()));
    }
    	
    	private static int computeDealerCards(int dealerCards)
@@ -104,7 +111,7 @@ public class BlackJack
 
 		while(play)
 		{
-			System.out.println(" Hit or Stand? (h/s)");
+			System.out.println("\nHit or Stand? (h/s)");
 			String n = console.nextLine();
 
 			if (n.equalsIgnoreCase("H"))
@@ -130,7 +137,7 @@ public class BlackJack
    {
    	if (n==1)
 		return "A";
-	if (n>1 & n<=10)
+	if (n>1 && n<=10)
 		return Integer.toString(n);
 	if (n==11)
 		return "J";
