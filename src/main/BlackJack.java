@@ -3,6 +3,8 @@ import java.util.*;
 public class BlackJack
 {
 	public static List<Integer> deck = new ArrayList<Integer>();
+	//public static List<Integer> cards = new ArrayList<Integer>();
+	//public static List<Integer> deck = new ArrayList<Integer>();
 
 	public static void main (String [] args)
     {
@@ -123,17 +125,17 @@ public class BlackJack
 
 			if (n.equalsIgnoreCase("H"))
 			{
-				int e= 1 + (int)(Math.random()*13);
+				int e = 1 + (int)(Math.random()*13);
 				System.out.printf("Your card is %s.\n",faceValue(e));
 				playerCards += cardValue(e);
-				play=true;
+				play = true;
 			}
 			else if (n.equalsIgnoreCase("S"))
-				play=false; 
+				play = false; 
 			else
 			{
 				System.out.println("Invalid Answer. Try Again.");
-				play=true;
+				play = true;
 			}
 
 			if (playerCards > 21) {
@@ -165,4 +167,6 @@ public class BlackJack
 		else
 			return 10;
    }
+
+   private static int 
 }
